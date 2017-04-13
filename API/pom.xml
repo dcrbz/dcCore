@@ -10,4 +10,14 @@
     <modelVersion>4.0.0</modelVersion>
 
     <artifactId>dccore-api</artifactId>
+
+    <dependencies>
+        <!-- CommandCreator -->
+        <dependency>
+            <groupId>fr.skybeast</groupId>
+            <artifactId>commandcreator-api</artifactId>
+            <version>1.2</version>
+            <scope>compile</scope>
+        </dependency>
+    </dependencies>
 </project>
