@@ -1,7 +1,7 @@
 package bz.dcr.dccore.listeners;
 
-import bz.dcr.commons.identification.CorePlayer;
-import bz.dcr.commons.identification.JoinInfo;
+import bz.dcr.dccore.commons.identification.CorePlayer;
+import bz.dcr.dccore.commons.identification.JoinInfo;
 import bz.dcr.dccore.DcCorePlugin;
 import net.md_5.bungee.api.connection.PendingConnection;
 import net.md_5.bungee.api.event.LoginEvent;

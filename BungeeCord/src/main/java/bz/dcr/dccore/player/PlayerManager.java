@@ -1,7 +1,7 @@
 package bz.dcr.dccore.player;
 
-import bz.dcr.commons.identification.CorePlayer;
-import bz.dcr.commons.player.AbstractPlayerManager;
+import bz.dcr.dccore.commons.identification.CorePlayer;
+import bz.dcr.dccore.commons.player.AbstractPlayerManager;
 import org.mongodb.morphia.Datastore;
 import org.mongodb.morphia.Key;
 

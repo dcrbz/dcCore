@@ -1,4 +1,4 @@
-package bz.dcr.commons.identification;
+package bz.dcr.dccore.commons.identification;
 
 import com.google.gson.TypeAdapter;
 import com.google.gson.stream.JsonReader;

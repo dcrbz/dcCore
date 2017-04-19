@@ -1,4 +1,4 @@
-package bz.dcr.commons.db;
+package bz.dcr.dccore.commons.db;
 
 import com.mongodb.MongoClient;
 import com.mongodb.MongoClientURI;

@@ -1,7 +1,7 @@
 package bz.dcr.dccore.identification;
 
-import bz.dcr.commons.identification.AbstractIdentificationProvider;
-import bz.dcr.commons.identification.CorePlayer;
+import bz.dcr.dccore.commons.identification.AbstractIdentificationProvider;
+import bz.dcr.dccore.commons.identification.CorePlayer;
 import org.mongodb.morphia.Datastore;
 
 import java.util.UUID;

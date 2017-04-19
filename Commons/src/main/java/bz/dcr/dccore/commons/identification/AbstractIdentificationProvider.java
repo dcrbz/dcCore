@@ -1,4 +1,4 @@
-package bz.dcr.commons.identification;
+package bz.dcr.dccore.commons.identification;
 
 import java.util.UUID;
 import java.util.concurrent.ExecutorService;

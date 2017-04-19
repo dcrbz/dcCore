@@ -1,4 +1,4 @@
-package bz.dcr.commons.identification;
+package bz.dcr.dccore.commons.identification;
 
 import org.mongodb.morphia.annotations.Embedded;
 import org.mongodb.morphia.annotations.Entity;

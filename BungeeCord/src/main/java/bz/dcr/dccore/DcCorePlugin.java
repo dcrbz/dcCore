@@ -1,6 +1,6 @@
 package bz.dcr.dccore;
 
-import bz.dcr.commons.db.MongoDB;
+import bz.dcr.dccore.commons.db.MongoDB;
 import bz.dcr.dccore.constants.ConfigKey;
 import bz.dcr.dccore.identification.IdentificationProvider;
 import bz.dcr.dccore.listeners.LoginListener;

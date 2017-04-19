@@ -1,6 +1,6 @@
-package bz.dcr.commons.player;
+package bz.dcr.dccore.commons.player;
 
-import bz.dcr.commons.identification.CorePlayer;
+import bz.dcr.dccore.commons.identification.CorePlayer;
 import org.mongodb.morphia.Key;
 
 import java.util.Optional;
