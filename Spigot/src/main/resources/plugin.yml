@@ -1,0 +1,4 @@
+name: dcCore
+authors: [leNic]
+version: ${project.version}
+main: bz.dcr.dccore.DcCorePlugin
