@@ -1,4 +1,0 @@
-name: ${pluginName}
-version: ${project.version}
-author: leNic
-main: ${pluginMain}
