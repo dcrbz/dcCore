@@ -5,7 +5,7 @@
     <parent>
         <artifactId>dccore</artifactId>
         <groupId>bz.dcr</groupId>
-        <version>1.0.1</version>
+        <version>1.0.2</version>
     </parent>
     <modelVersion>4.0.0</modelVersion>
 
@@ -30,6 +30,14 @@
             <scope>compile</scope>
         </dependency>
 
+        <!-- deinCMD -->
+        <dependency>
+            <groupId>bz.dcr</groupId>
+            <artifactId>deincmd</artifactId>
+            <version>1.0.0</version>
+            <scope>compile</scope>
+        </dependency>
+
         <!-- Spigot -->
         <dependency>
             <groupId>org.spigotmc</groupId>
@@ -44,14 +52,6 @@
             <artifactId>VaultAPI</artifactId>
             <version>1.6</version>
             <scope>provided</scope>
-        </dependency>
-
-        <!-- sk89q Command Framework -->
-        <dependency>
-            <groupId>com.sk89q</groupId>
-            <artifactId>command-framework-bukkit</artifactId>
-            <version>1.9</version>
-            <scope>compile</scope>
         </dependency>
     </dependencies>
 
