@@ -5,7 +5,10 @@ import bz.dcr.dccore.commons.identification.CorePlayer;
 import bz.dcr.dccore.commons.identification.JoinInfo;
 import org.bukkit.entity.Player;
 import org.bukkit.event.EventHandler;
+import org.bukkit.event.EventPriority;
 import org.bukkit.event.Listener;
+import org.bukkit.event.player.AsyncPlayerPreLoginEvent;
+import org.bukkit.event.player.PlayerJoinEvent;
 import org.bukkit.event.player.PlayerLoginEvent;
 
 import java.util.Optional;
@@ -20,19 +23,21 @@ public class LoginListener implements Listener {
     }
 
 
-    @EventHandler
-    public void onLogin(PlayerLoginEvent event) {
-        final Player player = event.getPlayer();
+    @EventHandler(priority = EventPriority.HIGH)
+    public void onLogin(AsyncPlayerPreLoginEvent event) {
+        // Login not allowed
+        if(event.getLoginResult() != AsyncPlayerPreLoginEvent.Result.ALLOWED)
+            return;
 
         // Get CorePlayer from PlayerManager
-        Optional<CorePlayer> corePlayerOptional = plugin.getPlayerManager().getCorePlayer(player.getUniqueId());
+        Optional<CorePlayer> corePlayerOptional = plugin.getPlayerManager().getCorePlayer(event.getUniqueId());
 
         // Player not found
         if(!corePlayerOptional.isPresent()) {
             CorePlayer corePlayer = new CorePlayer(
-                    player.getUniqueId(),
-                    player.getName(),
-                    new JoinInfo(player.getAddress().getHostString())
+                    event.getUniqueId(),
+                    event.getName(),
+                    new JoinInfo(event.getAddress().getHostAddress())
             );
 
             // Save new player
@@ -43,7 +48,7 @@ public class LoginListener implements Listener {
 
         // Update JoinInfo
         corePlayerOptional.get().setLastJoin(new JoinInfo(
-                player.getAddress().getHostString()
+                event.getAddress().getHostAddress()
         ));
 
         // Save updated CorePlayer
