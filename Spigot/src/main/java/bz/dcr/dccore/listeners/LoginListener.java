@@ -3,13 +3,10 @@ package bz.dcr.dccore.listeners;
 import bz.dcr.dccore.DcCorePlugin;
 import bz.dcr.dccore.commons.identification.CorePlayer;
 import bz.dcr.dccore.commons.identification.JoinInfo;
-import org.bukkit.entity.Player;
 import org.bukkit.event.EventHandler;
 import org.bukkit.event.EventPriority;
 import org.bukkit.event.Listener;
 import org.bukkit.event.player.AsyncPlayerPreLoginEvent;
-import org.bukkit.event.player.PlayerJoinEvent;
-import org.bukkit.event.player.PlayerLoginEvent;
 
 import java.util.Optional;
 
