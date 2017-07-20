@@ -7,7 +7,7 @@
     <groupId>bz.dcr</groupId>
     <artifactId>dccore</artifactId>
     <packaging>pom</packaging>
-    <version>1.0.5</version>
+    <version>1.0.6</version>
     <modules>
         <module>Spigot</module>
         <module>BungeeCord</module>
@@ -24,16 +24,6 @@
         <repository>
             <id>deincraft</id>
             <url>http://repo.dcr.bz/content/repositories/deincraft</url>
-        </repository>
-
-        <!-- Sonatype Snapshots -->
-        <repository>
-            <id>sonatype-snapshots</id>
-            <name>Sontatype Snapshots</name>
-            <url>https://oss.sonatype.org/content/repositories/snapshots</url>
-            <snapshots>
-                <enabled>true</enabled>
-            </snapshots>
         </repository>
 
         <!-- Vault Repository -->
