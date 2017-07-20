@@ -3,7 +3,7 @@ package bz.dcr.dccore;
 import bz.dcr.dccore.commons.db.MongoDB;
 import bz.dcr.dccore.constants.ConfigKey;
 import bz.dcr.dccore.identification.IdentificationProvider;
-import bz.dcr.dccore.listeners.LoginListener;
+import bz.dcr.dccore.listener.LoginListener;
 import bz.dcr.dccore.player.PlayerManager;
 import com.mongodb.MongoClientURI;
 import org.bukkit.plugin.java.JavaPlugin;

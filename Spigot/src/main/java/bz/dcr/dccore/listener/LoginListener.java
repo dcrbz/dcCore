@@ -1,4 +1,4 @@
-package bz.dcr.dccore.listeners;
+package bz.dcr.dccore.listener;
 
 import bz.dcr.dccore.DcCorePlugin;
 import bz.dcr.dccore.commons.identification.CorePlayer;
