@@ -7,7 +7,7 @@
     <groupId>bz.dcr</groupId>
     <artifactId>dccore</artifactId>
     <packaging>pom</packaging>
-    <version>1.0.7</version>
+    <version>1.0.2</version>
     <modules>
         <module>Spigot</module>
         <module>BungeeCord</module>
@@ -22,26 +22,8 @@
     <repositories>
         <!-- deinCraft Repository -->
         <repository>
-            <id>deincraft</id>
-            <url>http://repo.dcr.bz/content/repositories/deincraft</url>
-        </repository>
-
-        <!-- Vault Repository -->
-        <repository>
-            <id>vault-repo</id>
-            <url>http://nexus.hc.to/content/repositories/pub_releases</url>
-        </repository>
-
-        <!-- BungeeCord Repository -->
-        <repository>
-            <id>bungeecord-repo</id>
-            <url>https://oss.sonatype.org/content/repositories/snapshots</url>
-        </repository>
-
-        <!-- Spigot Repository -->
-        <repository>
-            <id>spigot-repo</id>
-            <url>https://hub.spigotmc.org/nexus/content/repositories/snapshots/</url>
+            <id>deincraft-repo</id>
+            <url>https://repo.dcr.bz/artifactory/deincraft-repo</url>
         </repository>
     </repositories>
 
