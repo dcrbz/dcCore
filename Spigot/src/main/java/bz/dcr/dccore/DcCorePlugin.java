@@ -43,6 +43,7 @@ public class DcCorePlugin extends JavaPlugin {
         // Additional initialization
         identificationProvider = new IdentificationProvider(getMongoDB().getDatastore());
         playerManager = new PlayerManager(getMongoDB().getDatastore());
+        itemManager = new ItemManager(this);
 
         // Register listeners
         registerListeners();
