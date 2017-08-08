@@ -2,6 +2,10 @@ package bz.dcr.dccore.identification;
 
 import bz.dcr.dccore.commons.identification.AbstractIdentificationProvider;
 import bz.dcr.dccore.commons.identification.CorePlayer;
+import org.bukkit.Material;
+import org.bukkit.SkullType;
+import org.bukkit.inventory.ItemStack;
+import org.bukkit.inventory.meta.SkullMeta;
 import org.mongodb.morphia.Datastore;
 
 import java.util.UUID;

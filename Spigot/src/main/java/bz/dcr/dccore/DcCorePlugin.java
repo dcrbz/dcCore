@@ -3,6 +3,7 @@ package bz.dcr.dccore;
 import bz.dcr.dccore.commons.db.MongoDB;
 import bz.dcr.dccore.constants.ConfigKey;
 import bz.dcr.dccore.identification.IdentificationProvider;
+import bz.dcr.dccore.item.ItemManager;
 import bz.dcr.dccore.listener.LoginListener;
 import bz.dcr.dccore.player.PlayerManager;
 import com.mongodb.MongoClientURI;
@@ -21,6 +22,7 @@ public class DcCorePlugin extends JavaPlugin {
 
     private IdentificationProvider identificationProvider;
     private PlayerManager playerManager;
+    private ItemManager itemManager;
 
 
     // Plugin methods
@@ -80,7 +82,7 @@ public class DcCorePlugin extends JavaPlugin {
         return executor;
     }
 
-    public MongoDB getMongoDB() {
+    private MongoDB getMongoDB() {
         return mongoDB;
     }
 
@@ -90,6 +92,10 @@ public class DcCorePlugin extends JavaPlugin {
 
     public PlayerManager getPlayerManager() {
         return playerManager;
+    }
+
+    public ItemManager getItemManager() {
+        return itemManager;
     }
 
 }

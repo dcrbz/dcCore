@@ -1,13 +1,18 @@
 package bz.dcr.dccore.commons.identification;
 
+import org.bson.types.ObjectId;
 import org.mongodb.morphia.annotations.Embedded;
 import org.mongodb.morphia.annotations.Entity;
+import org.mongodb.morphia.annotations.Id;
 import org.mongodb.morphia.annotations.Indexed;
 
 import java.util.UUID;
 
 @Entity
 public class CorePlayer {
+
+    @Id
+    private ObjectId id;
 
     @Indexed(unique = true)
     private UUID uuid;
@@ -30,6 +35,10 @@ public class CorePlayer {
         this.lastJoin = lastJoin;
     }
 
+
+    public ObjectId getId() {
+        return id;
+    }
 
     public UUID getUuid() {
         return uuid;
