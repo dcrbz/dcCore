@@ -5,7 +5,7 @@
     <parent>
         <artifactId>dccore</artifactId>
         <groupId>bz.dcr</groupId>
-        <version>1.0.4</version>
+        <version>1.0.5</version>
     </parent>
     <modelVersion>4.0.0</modelVersion>
 
@@ -43,6 +43,14 @@
             <artifactId>VaultAPI</artifactId>
             <version>1.6</version>
             <scope>provided</scope>
+        </dependency>
+
+        <!-- Levitate -->
+        <dependency>
+            <groupId>de.ketrwu</groupId>
+            <artifactId>levitate</artifactId>
+            <version>1.5.4-20160912.170558-18</version>
+            <scope>compile</scope>
         </dependency>
     </dependencies>
 
