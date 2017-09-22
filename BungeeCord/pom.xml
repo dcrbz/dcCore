@@ -5,7 +5,7 @@
     <parent>
         <artifactId>dccore</artifactId>
         <groupId>bz.dcr</groupId>
-        <version>1.0.5</version>
+        <version>1.0.6</version>
     </parent>
     <modelVersion>4.0.0</modelVersion>
 
@@ -40,6 +40,8 @@
 
     <!-- Build Settings -->
     <build>
+        <finalName>dccore-bungee</finalName>
+
         <!-- Resources -->
         <resources>
             <resource>

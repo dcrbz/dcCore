@@ -5,7 +5,7 @@
     <parent>
         <artifactId>dccore</artifactId>
         <groupId>bz.dcr</groupId>
-        <version>1.0.5</version>
+        <version>1.0.6</version>
     </parent>
     <modelVersion>4.0.0</modelVersion>
 
@@ -21,19 +21,11 @@
             <scope>compile</scope>
         </dependency>
 
-        <!-- deinCMD -->
-        <dependency>
-            <groupId>bz.dcr</groupId>
-            <artifactId>deincmd</artifactId>
-            <version>1.0.1</version>
-            <scope>compile</scope>
-        </dependency>
-
         <!-- Spigot -->
         <dependency>
             <groupId>org.spigotmc</groupId>
             <artifactId>spigot-api</artifactId>
-            <version>1.12.1-R0.1-SNAPSHOT</version>
+            <version>1.12.2-R0.1-SNAPSHOT</version>
             <scope>provided</scope>
         </dependency>
 
@@ -49,13 +41,15 @@
         <dependency>
             <groupId>de.ketrwu</groupId>
             <artifactId>levitate</artifactId>
-            <version>1.5.4-20160912.170558-18</version>
+            <version>1.5.4</version>
             <scope>compile</scope>
         </dependency>
     </dependencies>
 
     <!-- Build Settings -->
     <build>
+        <finalName>dccore-spigot</finalName>
+
         <!-- Resources -->
         <resources>
             <resource>

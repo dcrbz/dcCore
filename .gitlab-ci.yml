@@ -1,0 +1,16 @@
+stages:
+  - build
+
+maven-build:
+  image: maven:3-jdk-8
+  stage: build
+  tags:
+    - maven
+  script:
+    - mvn install -B
+    - mvn package
+  artifacts:
+    name: "dcCore"
+    paths:
+      - ./BungeeCord/target/dccore-bungee-jar-with-dependencies.jar
+      - ./Spigot/target/dccore-spigot-jar-with-dependencies.jar
