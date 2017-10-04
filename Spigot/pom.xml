@@ -48,8 +48,6 @@
 
     <!-- Build Settings -->
     <build>
-        <finalName>dccore-spigot</finalName>
-
         <!-- Resources -->
         <resources>
             <resource>

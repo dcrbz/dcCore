@@ -40,8 +40,6 @@
 
     <!-- Build Settings -->
     <build>
-        <finalName>dccore-bungee</finalName>
-
         <!-- Resources -->
         <resources>
             <resource>
