@@ -6,6 +6,7 @@ import bz.dcr.dccore.identification.IdentificationProvider;
 import bz.dcr.dccore.item.ItemManager;
 import bz.dcr.dccore.listener.LoginListener;
 import bz.dcr.dccore.player.PlayerManager;
+import com.mongodb.BasicDBObject;
 import com.mongodb.MongoClientURI;
 import org.bukkit.plugin.java.JavaPlugin;
 
@@ -69,6 +70,7 @@ public class DcCorePlugin extends JavaPlugin {
         );
 
         mongoDB = new MongoDB(uri, getClass().getClassLoader());
+        mongoDB.getClient().getDatabase("admin").runCommand(new BasicDBObject("setFeatureCompatibilityVersion", "3.4"));
         mongoDB.getMorphia().mapPackage(getClass().getPackage().getName(), true);
     }
 
