@@ -10,7 +10,7 @@ maven-build:
     - mvn install -B
     - mvn package
   artifacts:
-    name: "dcCore"
+    name: "$CI_PROJECT_NAME-$CI_JOB_ID"
     paths:
-      - ./BungeeCord/target/dccore-bungee-jar-with-dependencies.jar
-      - ./Spigot/target/dccore-spigot-jar-with-dependencies.jar
+      - ./BungeeCord/target/*.jar
+      - ./Spigot/target/*.jar
