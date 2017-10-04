@@ -42,7 +42,7 @@
             <groupId>de.ketrwu</groupId>
             <artifactId>levitate</artifactId>
             <version>1.5.4</version>
-            <scope>compile</scope>
+            <scope>provided</scope>
         </dependency>
     </dependencies>
 
