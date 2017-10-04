@@ -1,5 +1,6 @@
 package bz.dcr.dccore.commons.db;
 
+import com.mongodb.BasicDBObject;
 import com.mongodb.MongoClient;
 import com.mongodb.MongoClientURI;
 import org.mongodb.morphia.Datastore;
@@ -24,6 +25,7 @@ public class MongoDB implements Closeable {
             }
         });
         client = new MongoClient(uri);
+        client.getDatabase(uri.getDatabase()).runCommand(new BasicDBObject("setFeatureCompatibilityVersion", "3.4"));
         datastore = morphia.createDatastore(client, uri.getDatabase());
         datastore.ensureIndexes();
     }
