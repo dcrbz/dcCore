@@ -6,7 +6,6 @@ import bz.dcr.dccore.util.AdvancementMessage;
 import org.bukkit.ChatColor;
 import org.bukkit.Material;
 import org.bukkit.entity.Player;
-import org.bukkit.plugin.java.JavaPlugin;
 
 import java.util.Collection;
 import java.util.UUID;
@@ -39,7 +38,7 @@ public class ToastManager {
         toast.showTo(targets);
     }
 
-    public void sendToast(Material icon, String text, JavaPlugin plugin, Player target) {
+    public void sendToast(Material icon, String text, Player target) {
         // Build toast
         AdvancementMessage toast = new AdvancementMessage(
                 getRandomToastId(),
@@ -53,7 +52,7 @@ public class ToastManager {
         sendToast(toast, target);
     }
 
-    public void sendToast(Material icon, String text, JavaPlugin plugin, Collection<? extends Player> targets) {
+    public void sendToast(Material icon, String text, Collection<? extends Player> targets) {
         // Build toast
         AdvancementMessage toast = new AdvancementMessage(
                 getRandomToastId(),
