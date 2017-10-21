@@ -32,8 +32,8 @@ public class AdvancementMessage	{
      * @param icon minecraft id of display item (minecraft:...)
      * @param pl Your plugin instance
      */
-    public AdvancementMessage(String id, String title, String icon, JavaPlugin pl)	{
-        this(new NamespacedKey(pl, id), title, icon, pl);
+    public AdvancementMessage(String id, String title, String description, String icon, JavaPlugin pl)	{
+        this(new NamespacedKey(pl, id), title, description, icon, pl);
     }
 
     /**
@@ -43,13 +43,71 @@ public class AdvancementMessage	{
      * @param icon minecraft id of display item (minecraft:...)
      * @param pl Your plugin instance
      */
-    public AdvancementMessage(NamespacedKey id, String title, String icon, JavaPlugin pl) {
+    public AdvancementMessage(NamespacedKey id, String title, String description, String icon, JavaPlugin pl) {
         this.id = id;
         this.title = title;
-        this.description = "";
+        this.description = description;
         this.icon = icon;
         this.pl = pl;
     }
+
+
+    public NamespacedKey getId() {
+        return id;
+    }
+
+    public void setId(NamespacedKey id) {
+        this.id = id;
+    }
+
+    public String getIcon() {
+        return icon;
+    }
+
+    public void setIcon(String icon) {
+        this.icon = icon;
+    }
+
+    public String getTitle() {
+        return title;
+    }
+
+    public void setTitle(String title) {
+        this.title = title;
+    }
+
+    public String getDescription() {
+        return description;
+    }
+
+    public void setDescription(String description) {
+        this.description = description;
+    }
+
+    public String getFrame() {
+        return frame;
+    }
+
+    public void setFrame(String frame) {
+        this.frame = frame;
+    }
+
+    public boolean isAnnounce() {
+        return announce;
+    }
+
+    public void setAnnounce(boolean announce) {
+        this.announce = announce;
+    }
+
+    public boolean isToast() {
+        return toast;
+    }
+
+    public void setToast(boolean toast) {
+        this.toast = toast;
+    }
+
 
     public void showTo(Player player)	{
         showTo(Arrays.asList(player));
