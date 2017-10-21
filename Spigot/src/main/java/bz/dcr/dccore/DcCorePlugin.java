@@ -2,6 +2,7 @@ package bz.dcr.dccore;
 
 import bz.dcr.dccore.commons.db.MongoDB;
 import bz.dcr.dccore.constants.ConfigKey;
+import bz.dcr.dccore.gui.toast.ToastManager;
 import bz.dcr.dccore.identification.IdentificationProvider;
 import bz.dcr.dccore.item.ItemManager;
 import bz.dcr.dccore.listener.LoginListener;
@@ -24,6 +25,7 @@ public class DcCorePlugin extends JavaPlugin {
     private IdentificationProvider identificationProvider;
     private PlayerManager playerManager;
     private ItemManager itemManager;
+    private ToastManager toastManager;
 
 
     // Plugin methods
@@ -45,6 +47,7 @@ public class DcCorePlugin extends JavaPlugin {
         identificationProvider = new IdentificationProvider(getMongoDB().getDatastore());
         playerManager = new PlayerManager(getMongoDB().getDatastore());
         itemManager = new ItemManager(this);
+        toastManager = new ToastManager(this);
 
         // Register listeners
         registerListeners();
@@ -99,6 +102,10 @@ public class DcCorePlugin extends JavaPlugin {
 
     public ItemManager getItemManager() {
         return itemManager;
+    }
+
+    public ToastManager getToastManager() {
+        return toastManager;
     }
 
 }

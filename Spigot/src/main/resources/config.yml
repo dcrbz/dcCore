@@ -1,2 +1,6 @@
 MongoDB:
   Uri: mongodb://127.0.0.1:27017/dccore
+
+Toast:
+  Max-Length: 45
+  Dots: ' [...]'
