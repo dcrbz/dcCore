@@ -2,6 +2,9 @@ package bz.dcr.dccore.notification;
 
 import bz.dcr.dccore.commons.notification.INotificationManager;
 import bz.dcr.dccore.commons.notification.OneTimeNotification;
+import org.bukkit.Bukkit;
+import org.bukkit.entity.Player;
+import org.bukkit.plugin.Plugin;
 import org.mongodb.morphia.Datastore;
 import org.mongodb.morphia.query.Query;
 
@@ -10,13 +13,42 @@ import java.util.UUID;
 
 public class NotificationManager implements INotificationManager {
 
+    private Plugin plugin;
     private Datastore datastore;
 
 
-    public NotificationManager(Datastore datastore) {
+    public NotificationManager(Plugin plugin, Datastore datastore) {
+        this.plugin = plugin;
         this.datastore = datastore;
     }
 
+
+    @Override
+    public OneTimeNotification createOneTimeNotification(UUID targetPlayer, String message) {
+        // Create notification
+        final OneTimeNotification notification =  new OneTimeNotification(
+                targetPlayer, message, false
+        );
+
+        // Get player
+        final Player player = Bukkit.getPlayer(notification.getTargetPlayer());
+
+        // Player is currently online
+        if (player != null) {
+            sendOneTimeNotification(player, notification);
+            return notification;
+        }
+
+        // Save notification
+        Bukkit.getScheduler().runTaskAsynchronously(plugin, () ->
+                saveOneTimeNotification(notification));
+
+        return notification;
+    }
+
+    public void sendOneTimeNotification(Player player, OneTimeNotification notification) {
+        player.sendMessage(notification.getMessage());
+    }
 
     @Override
     public List<OneTimeNotification> getOneTimeNotifications(UUID targetPlayer) {
@@ -25,8 +57,7 @@ public class NotificationManager implements INotificationManager {
                 .asList();
     }
 
-    @Override
-    public void saveOneTimeNotification(OneTimeNotification notification) {
+    private void saveOneTimeNotification(OneTimeNotification notification) {
         datastore.save(notification);
     }
 

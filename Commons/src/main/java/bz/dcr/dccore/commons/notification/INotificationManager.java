@@ -5,9 +5,10 @@ import java.util.UUID;
 
 public interface INotificationManager {
 
+    OneTimeNotification createOneTimeNotification(UUID targetPlayer, String message);
+
     List<OneTimeNotification> getOneTimeNotifications(UUID targetPlayer);
 
-    void saveOneTimeNotification(OneTimeNotification notification);
     void deleteOneTimeNotifications(UUID targetPlayer);
 
 }

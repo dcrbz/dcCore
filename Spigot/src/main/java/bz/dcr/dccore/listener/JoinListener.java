@@ -30,7 +30,8 @@ public class JoinListener implements Listener {
                     .getOneTimeNotifications(player.getUniqueId());
 
             // Send notification message
-            notifications.forEach(notification -> player.sendMessage(notification.getMessage()));
+            notifications.forEach(notification ->
+                    plugin.getNotificationManager().sendOneTimeNotification(player, notification));
 
             // Delete notifications
             plugin.getNotificationManager().deleteOneTimeNotifications(player.getUniqueId());

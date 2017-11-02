@@ -1,7 +1,6 @@
 package bz.dcr.dccore;
 
 import bz.dcr.dccore.commons.db.MongoDB;
-import bz.dcr.dccore.commons.notification.INotificationManager;
 import bz.dcr.dccore.constants.ConfigKey;
 import bz.dcr.dccore.gui.toast.ToastManager;
 import bz.dcr.dccore.identification.IdentificationProvider;
@@ -29,7 +28,7 @@ public class DcCorePlugin extends JavaPlugin {
     private PlayerManager playerManager;
     private ItemManager itemManager;
     private ToastManager toastManager;
-    private INotificationManager notificationManager;
+    private NotificationManager notificationManager;
 
 
     // Plugin methods
@@ -52,7 +51,7 @@ public class DcCorePlugin extends JavaPlugin {
         playerManager = new PlayerManager(getMongoDB().getDatastore());
         itemManager = new ItemManager(this);
         toastManager = new ToastManager(this);
-        notificationManager = new NotificationManager(getMongoDB().getDatastore());
+        notificationManager = new NotificationManager(this, getMongoDB().getDatastore());
 
         // Register listeners
         registerListeners();
@@ -114,7 +113,7 @@ public class DcCorePlugin extends JavaPlugin {
         return toastManager;
     }
 
-    public INotificationManager getNotificationManager() {
+    public NotificationManager getNotificationManager() {
         return notificationManager;
     }
 
