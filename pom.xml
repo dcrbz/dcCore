@@ -7,7 +7,7 @@
     <groupId>bz.dcr</groupId>
     <artifactId>dccore</artifactId>
     <packaging>pom</packaging>
-    <version>1.0.12</version>
+    <version>1.0.13</version>
     <modules>
         <module>Spigot</module>
         <module>BungeeCord</module>

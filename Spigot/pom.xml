@@ -5,7 +5,7 @@
     <parent>
         <artifactId>dccore</artifactId>
         <groupId>bz.dcr</groupId>
-        <version>1.0.12</version>
+        <version>1.0.13</version>
     </parent>
     <modelVersion>4.0.0</modelVersion>
 
@@ -42,6 +42,14 @@
             <groupId>de.ketrwu</groupId>
             <artifactId>levitate</artifactId>
             <version>1.5.4</version>
+            <scope>provided</scope>
+        </dependency>
+
+        <!-- ProtocolLib -->
+        <dependency>
+            <groupId>com.comphenix.protocol</groupId>
+            <artifactId>ProtocolLib</artifactId>
+            <version>4.3.0</version>
             <scope>provided</scope>
         </dependency>
     </dependencies>
