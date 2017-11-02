@@ -1,11 +1,14 @@
 package bz.dcr.dccore;
 
 import bz.dcr.dccore.commons.db.MongoDB;
+import bz.dcr.dccore.commons.notification.INotificationManager;
 import bz.dcr.dccore.constants.ConfigKey;
 import bz.dcr.dccore.gui.toast.ToastManager;
 import bz.dcr.dccore.identification.IdentificationProvider;
 import bz.dcr.dccore.item.ItemManager;
+import bz.dcr.dccore.listener.JoinListener;
 import bz.dcr.dccore.listener.LoginListener;
+import bz.dcr.dccore.notification.NotificationManager;
 import bz.dcr.dccore.player.PlayerManager;
 import com.mongodb.BasicDBObject;
 import com.mongodb.MongoClientURI;
@@ -26,6 +29,7 @@ public class DcCorePlugin extends JavaPlugin {
     private PlayerManager playerManager;
     private ItemManager itemManager;
     private ToastManager toastManager;
+    private INotificationManager notificationManager;
 
 
     // Plugin methods
@@ -48,6 +52,7 @@ public class DcCorePlugin extends JavaPlugin {
         playerManager = new PlayerManager(getMongoDB().getDatastore());
         itemManager = new ItemManager(this);
         toastManager = new ToastManager(this);
+        notificationManager = new NotificationManager(getMongoDB().getDatastore());
 
         // Register listeners
         registerListeners();
@@ -79,6 +84,7 @@ public class DcCorePlugin extends JavaPlugin {
 
     private void registerListeners() {
         getServer().getPluginManager().registerEvents(new LoginListener(this), this);
+        getServer().getPluginManager().registerEvents(new JoinListener(this), this);
     }
 
 
@@ -106,6 +112,10 @@ public class DcCorePlugin extends JavaPlugin {
 
     public ToastManager getToastManager() {
         return toastManager;
+    }
+
+    public INotificationManager getNotificationManager() {
+        return notificationManager;
     }
 
 }
