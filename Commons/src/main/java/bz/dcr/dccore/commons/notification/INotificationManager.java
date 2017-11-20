@@ -7,6 +7,8 @@ public interface INotificationManager {
 
     OneTimeNotification createOneTimeNotification(UUID targetPlayer, String message);
 
+    void createOneTimeNotification(Iterable<UUID> targets, String message);
+
     List<OneTimeNotification> getOneTimeNotifications(UUID targetPlayer);
 
     void deleteOneTimeNotifications(UUID targetPlayer);

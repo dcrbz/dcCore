@@ -46,7 +46,12 @@ public class NotificationManager implements INotificationManager {
         return notification;
     }
 
-    public void sendOneTimeNotification(Player player, OneTimeNotification notification) {
+    @Override
+    public void createOneTimeNotification(Iterable<UUID> targets, String message) {
+        targets.forEach(target -> createOneTimeNotification(target, message));
+    }
+
+    private void sendOneTimeNotification(Player player, OneTimeNotification notification) {
         player.sendMessage(notification.getMessage());
     }
 
