@@ -4,3 +4,6 @@ MongoDB:
 Toast:
   Max-Length: 45
   Dots: ' [...]'
+
+Notifications:
+  Receive-One-Time-Notifications: true

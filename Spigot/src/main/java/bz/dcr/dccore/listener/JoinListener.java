@@ -2,6 +2,7 @@ package bz.dcr.dccore.listener;
 
 import bz.dcr.dccore.DcCorePlugin;
 import bz.dcr.dccore.commons.notification.OneTimeNotification;
+import bz.dcr.dccore.constants.ConfigKey;
 import org.bukkit.Bukkit;
 import org.bukkit.entity.Player;
 import org.bukkit.event.EventHandler;
@@ -22,6 +23,11 @@ public class JoinListener implements Listener {
 
     @EventHandler
     public void onJoin(PlayerJoinEvent event) {
+        // Server does not receive one time notifications
+        if (!plugin.getConfig().getBoolean(ConfigKey.RECEIVE_ONE_TIME_NOTIFICATIONS)) {
+            return;
+        }
+
         final Player player = event.getPlayer();
 
         Bukkit.getScheduler().runTaskAsynchronously(plugin, () -> {
