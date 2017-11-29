@@ -23,7 +23,7 @@
         <!-- deinCraft Repository -->
         <repository>
             <id>deincraft-repo</id>
-            <url>https://repo.dcr.bz/artifactory/deincraft-repo</url>
+            <url>https://repo.deincraft.bz/artifactory/deincraft-repo</url>
         </repository>
     </repositories>
 
