@@ -1,5 +1,6 @@
 package bz.dcr.dccore.commons.db;
 
+import bz.dcr.dccore.commons.db.converter.CustomBigDecimalConverter;
 import com.mongodb.MongoClient;
 import com.mongodb.MongoClientURI;
 import org.mongodb.morphia.Datastore;
@@ -17,6 +18,7 @@ public class MongoDB implements Closeable {
 
     public MongoDB(MongoClientURI uri, ClassLoader classLoader) {
         morphia = new Morphia();
+        morphia.getMapper().getConverters().addConverter(CustomBigDecimalConverter.class);
         morphia.getMapper().getOptions().setObjectFactory(new DefaultCreator() {
             @Override
             protected ClassLoader getClassLoaderForClass() {
