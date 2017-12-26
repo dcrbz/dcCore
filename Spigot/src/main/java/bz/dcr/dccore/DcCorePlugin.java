@@ -6,7 +6,6 @@ import bz.dcr.dccore.gui.toast.ToastManager;
 import bz.dcr.dccore.identification.IdentificationProvider;
 import bz.dcr.dccore.item.ItemManager;
 import bz.dcr.dccore.listener.JoinListener;
-import bz.dcr.dccore.listener.LoginListener;
 import bz.dcr.dccore.notification.NotificationManager;
 import bz.dcr.dccore.player.PlayerManager;
 import com.mongodb.BasicDBObject;
@@ -82,7 +81,6 @@ public class DcCorePlugin extends JavaPlugin {
     }
 
     private void registerListeners() {
-        getServer().getPluginManager().registerEvents(new LoginListener(this), this);
         getServer().getPluginManager().registerEvents(new JoinListener(this), this);
     }
 
