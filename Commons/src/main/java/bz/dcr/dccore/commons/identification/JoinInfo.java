@@ -12,6 +12,7 @@ public class JoinInfo {
     }
 
     public JoinInfo(String ipAddress) {
+        this.time = new Date();
         this.ipAddress = ipAddress;
     }
 

@@ -8,6 +8,7 @@ import bz.dcr.dccore.item.ItemManager;
 import bz.dcr.dccore.listener.JoinListener;
 import bz.dcr.dccore.notification.NotificationManager;
 import bz.dcr.dccore.player.PlayerManager;
+import bz.dcr.dccore.prompt.PromptManager;
 import com.mongodb.BasicDBObject;
 import com.mongodb.MongoClientURI;
 import org.bukkit.plugin.java.JavaPlugin;
@@ -28,6 +29,7 @@ public class DcCorePlugin extends JavaPlugin {
     private ItemManager itemManager;
     private ToastManager toastManager;
     private NotificationManager notificationManager;
+    private PromptManager promptManager;
 
 
     // Plugin methods
@@ -51,6 +53,7 @@ public class DcCorePlugin extends JavaPlugin {
         itemManager = new ItemManager(this);
         toastManager = new ToastManager(this);
         notificationManager = new NotificationManager(this, getMongoDB().getDatastore());
+        promptManager = new PromptManager(this);
 
         // Register listeners
         registerListeners();
@@ -113,6 +116,10 @@ public class DcCorePlugin extends JavaPlugin {
 
     public NotificationManager getNotificationManager() {
         return notificationManager;
+    }
+
+    public PromptManager getPromptManager() {
+        return promptManager;
     }
 
 }
