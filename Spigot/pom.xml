@@ -5,7 +5,7 @@
     <parent>
         <artifactId>dccore</artifactId>
         <groupId>bz.dcr</groupId>
-        <version>1.1.0</version>
+        <version>1.2.0</version>
     </parent>
     <modelVersion>4.0.0</modelVersion>
 
@@ -25,7 +25,7 @@
         <dependency>
             <groupId>org.spigotmc</groupId>
             <artifactId>spigot-api</artifactId>
-            <version>1.12.2-R0.1-SNAPSHOT</version>
+            <version>1.13.2-R0.1-SNAPSHOT</version>
             <scope>provided</scope>
         </dependency>
 
@@ -37,19 +37,11 @@
             <scope>provided</scope>
         </dependency>
 
-        <!-- Levitate -->
-        <dependency>
-            <groupId>de.ketrwu</groupId>
-            <artifactId>levitate</artifactId>
-            <version>1.5.5</version>
-            <scope>provided</scope>
-        </dependency>
-
         <!-- ProtocolLib -->
         <dependency>
             <groupId>com.comphenix.protocol</groupId>
-            <artifactId>ProtocolLib</artifactId>
-            <version>4.3.0</version>
+            <artifactId>ProtocolLib-API</artifactId>
+            <version>4.4.0</version>
             <scope>provided</scope>
         </dependency>
     </dependencies>
@@ -68,6 +60,7 @@
         <plugins>
             <plugin>
                 <artifactId>maven-assembly-plugin</artifactId>
+                <version>3.1.1</version>
                 <executions>
                     <execution>
                         <phase>package</phase>

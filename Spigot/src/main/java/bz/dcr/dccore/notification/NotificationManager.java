@@ -26,7 +26,7 @@ public class NotificationManager implements INotificationManager {
     @Override
     public OneTimeNotification createOneTimeNotification(UUID targetPlayer, String message) {
         // Create notification
-        final OneTimeNotification notification =  new OneTimeNotification(
+        final OneTimeNotification notification = new OneTimeNotification(
                 targetPlayer, message, false
         );
 

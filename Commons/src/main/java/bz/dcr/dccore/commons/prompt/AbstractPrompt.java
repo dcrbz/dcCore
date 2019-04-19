@@ -41,6 +41,7 @@ public abstract class AbstractPrompt {
     public static abstract class PromptCallback<T extends AbstractPrompt> {
 
         public abstract void onSuccess(T prompt);
+
         public abstract void onFailure(T prompt, String rawInput);
 
     }

@@ -28,7 +28,7 @@ public class LoginListener implements Listener {
         Optional<CorePlayer> corePlayer = plugin.getPlayerManager().getCorePlayer(connection.getUniqueId());
 
         // Player not found
-        if(!corePlayer.isPresent()) {
+        if (!corePlayer.isPresent()) {
             CorePlayer player = new CorePlayer(
                     connection.getUniqueId(),
                     connection.getName(),

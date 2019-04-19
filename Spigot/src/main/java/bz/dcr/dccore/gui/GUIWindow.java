@@ -1,7 +1,7 @@
 package bz.dcr.dccore.gui;
 
-import org.bukkit.ChatColor;
 import org.bukkit.Bukkit;
+import org.bukkit.ChatColor;
 import org.bukkit.entity.HumanEntity;
 import org.bukkit.event.inventory.InventoryCloseEvent;
 import org.bukkit.event.inventory.InventoryOpenEvent;
@@ -42,7 +42,7 @@ public class GUIWindow {
     }
 
     public void setItem(int x, int y, GUIItem item) {
-        setItem(x + y*9, item);
+        setItem(x + y * 9, item);
     }
 
     public GUIItem getItem(int slot) {
@@ -50,7 +50,7 @@ public class GUIWindow {
     }
 
     public GUIItem getItem(int x, int y) {
-        return getItem(x*9 + y);
+        return getItem(x * 9 + y);
     }
 
     public void setOpenEvent(Consumer<InventoryOpenEvent> e) {
@@ -58,7 +58,7 @@ public class GUIWindow {
     }
 
     void callOpen(InventoryOpenEvent e) {
-        if(onOpen != null) onOpen.accept(e);
+        if (onOpen != null) onOpen.accept(e);
     }
 
     public void setCloseEvent(Consumer<InventoryCloseEvent> e) {
@@ -66,7 +66,7 @@ public class GUIWindow {
     }
 
     void callClosed(InventoryCloseEvent e) {
-        if(onClose != null) onClose.accept(e);
+        if (onClose != null) onClose.accept(e);
     }
 
     public Inventory getBukkitInventory() {
@@ -90,7 +90,7 @@ public class GUIWindow {
     }
 
     private String getValidName(String name) {
-        if(windows.containsKey(name)) return getValidName(name + ChatColor.RESET);
+        if (windows.containsKey(name)) return getValidName(name + ChatColor.RESET);
         else return name;
     }
 

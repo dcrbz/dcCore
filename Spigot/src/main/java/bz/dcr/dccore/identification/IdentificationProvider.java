@@ -2,10 +2,6 @@ package bz.dcr.dccore.identification;
 
 import bz.dcr.dccore.commons.identification.AbstractIdentificationProvider;
 import bz.dcr.dccore.commons.identification.CorePlayer;
-import org.bukkit.Material;
-import org.bukkit.SkullType;
-import org.bukkit.inventory.ItemStack;
-import org.bukkit.inventory.meta.SkullMeta;
 import org.mongodb.morphia.Datastore;
 
 import java.util.UUID;
@@ -25,7 +21,7 @@ public class IdentificationProvider extends AbstractIdentificationProvider {
         CorePlayer player = getCorePlayerFromDatabase(name);
 
         // Player not found in database
-        if(player == null) {
+        if (player == null) {
             return getUUIDFromMojang(name);
         }
 
@@ -37,7 +33,7 @@ public class IdentificationProvider extends AbstractIdentificationProvider {
         CorePlayer player = getCorePlayerFromDatabase(uuid);
 
         // Player not found in database
-        if(player == null) {
+        if (player == null) {
             return getNameFromMojang(uuid);
         }
 

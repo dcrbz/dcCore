@@ -9,7 +9,7 @@ public class ItemStackCodecProvider implements CodecProvider {
 
     @Override
     public <T> Codec<T> get(Class<T> clazz, CodecRegistry codecRegistry) {
-        if(clazz == ItemStack.class) {
+        if (clazz == ItemStack.class) {
             return (Codec<T>) new ItemStackCodec();
         }
 

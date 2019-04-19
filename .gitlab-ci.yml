@@ -1,16 +1,16 @@
 stages:
-  - build
+- build
 
 maven-build:
   image: maven:3-jdk-8
   stage: build
   tags:
-    - maven
+  - maven
   script:
-    - mvn install -B
-    - mvn package
+  - mvn install -B
+  - mvn package
   artifacts:
     name: "$CI_PROJECT_NAME-$CI_JOB_ID"
     paths:
-      - ./BungeeCord/target/*.jar
-      - ./Spigot/target/*.jar
+    - ./BungeeCord/target/*.jar
+    - ./Spigot/target/*.jar

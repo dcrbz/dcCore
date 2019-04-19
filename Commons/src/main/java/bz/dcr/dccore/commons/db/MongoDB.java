@@ -33,7 +33,7 @@ public class MongoDB implements Closeable {
 
     @Override
     public void close() {
-        if(client != null)
+        if (client != null)
             client.close();
     }
 

@@ -10,7 +10,7 @@ public class UUIDCodecProvider implements CodecProvider {
 
     @Override
     public <T> Codec<T> get(Class<T> clazz, CodecRegistry codecRegistry) {
-        if(clazz == UUID.class) {
+        if (clazz == UUID.class) {
             return (Codec<T>) new UUIDCodec();
         }
 

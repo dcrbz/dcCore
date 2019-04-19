@@ -52,7 +52,7 @@ public class DcCorePlugin extends Plugin {
 
     @Override
     public void onDisable() {
-        if(mongoDB != null) {
+        if (mongoDB != null) {
             mongoDB.close();
         }
     }

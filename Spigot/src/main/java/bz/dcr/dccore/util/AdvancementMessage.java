@@ -14,7 +14,7 @@ import org.bukkit.scheduler.BukkitRunnable;
 import java.util.Arrays;
 import java.util.Collection;
 
-public class AdvancementMessage	{
+public class AdvancementMessage {
 
     private static Gson gson = new GsonBuilder().setPrettyPrinting().create();
 
@@ -27,21 +27,23 @@ public class AdvancementMessage	{
 
     /**
      * Create a Toast/Advancement display (Top right corner)
-     * @param id A unique id for this Advancement, will be the name if advancement file
+     *
+     * @param id    A unique id for this Advancement, will be the name if advancement file
      * @param title Message to show/send
-     * @param icon minecraft id of display item (minecraft:...)
-     * @param pl Your plugin instance
+     * @param icon  minecraft id of display item (minecraft:...)
+     * @param pl    Your plugin instance
      */
-    public AdvancementMessage(String id, String title, String description, String icon, JavaPlugin pl)	{
+    public AdvancementMessage(String id, String title, String description, String icon, JavaPlugin pl) {
         this(new NamespacedKey(pl, id), title, description, icon, pl);
     }
 
     /**
      * Create a Toast/Advancement display (Top right corner)
-     * @param id A unique id for this Advancement, will be the name if advancement file
+     *
+     * @param id    A unique id for this Advancement, will be the name if advancement file
      * @param title Message to show/send
-     * @param icon minecraft id of display item (minecraft:...)
-     * @param pl Your plugin instance
+     * @param icon  minecraft id of display item (minecraft:...)
+     * @param pl    Your plugin instance
      */
     public AdvancementMessage(NamespacedKey id, String title, String description, String icon, JavaPlugin pl) {
         this.id = id;
@@ -109,11 +111,11 @@ public class AdvancementMessage	{
     }
 
 
-    public void showTo(Player player)	{
+    public void showTo(Player player) {
         showTo(Arrays.asList(player));
     }
 
-    public void showTo(Collection<? extends Player> players)	{
+    public void showTo(Collection<? extends Player> players) {
         add();
         grant(players);
         new BukkitRunnable() {
@@ -126,48 +128,48 @@ public class AdvancementMessage	{
         }.runTaskLater(pl, 20);
     }
 
-    private void add()	{
+    private void add() {
         try {
             Bukkit.getUnsafe().loadAdvancement(id, getJson());
             Bukkit.getLogger().info("Advancement " + id + " saved");
-        } catch (IllegalArgumentException e){
+        } catch (IllegalArgumentException e) {
             Bukkit.getLogger().info("Error while saving, Advancement " + id + " seems to already exist");
         }
     }
 
-    private void remove()	{
+    private void remove() {
         Bukkit.getUnsafe().removeAdvancement(id);
     }
 
     private void grant(Collection<? extends Player> players) {
         Advancement advancement = Bukkit.getAdvancement(id);
         AdvancementProgress progress;
-        for (Player player : players)	{
+        for (Player player : players) {
 
             progress = player.getAdvancementProgress(advancement);
-            if (!progress.isDone())	{
-                for (String criteria : progress.getRemainingCriteria())	{
+            if (!progress.isDone()) {
+                for (String criteria : progress.getRemainingCriteria()) {
                     progress.awardCriteria(criteria);
                 }
             }
         }
     }
 
-    private void revoke(Collection<? extends Player> players)	{
+    private void revoke(Collection<? extends Player> players) {
         Advancement advancement = Bukkit.getAdvancement(id);
         AdvancementProgress progress;
-        for (Player player : players)	{
+        for (Player player : players) {
 
             progress = player.getAdvancementProgress(advancement);
-            if (progress.isDone())	{
-                for (String criteria : progress.getAwardedCriteria())	{
+            if (progress.isDone()) {
+                for (String criteria : progress.getAwardedCriteria()) {
                     progress.revokeCriteria(criteria);
                 }
             }
         }
     }
 
-    public String getJson()	{
+    public String getJson() {
         JsonObject json = new JsonObject();
 
         JsonObject icon = new JsonObject();

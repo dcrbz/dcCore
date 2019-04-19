@@ -1,8 +1,9 @@
 package bz.dcr.dccore.item;
 
 import bz.dcr.dccore.DcCorePlugin;
+import org.bukkit.Bukkit;
 import org.bukkit.Material;
-import org.bukkit.SkullType;
+import org.bukkit.OfflinePlayer;
 import org.bukkit.inventory.ItemStack;
 import org.bukkit.inventory.meta.SkullMeta;
 
@@ -18,8 +19,9 @@ public class ItemManager {
     }
 
 
+    @Deprecated
     public ItemStack getPlayerHead(String playerName) {
-        ItemStack itemStack = new ItemStack(Material.SKULL_ITEM, 1, (short) SkullType.PLAYER.ordinal());
+        ItemStack itemStack = new ItemStack(Material.PLAYER_HEAD);
         SkullMeta skullMeta = (SkullMeta) itemStack.getItemMeta();
 
         skullMeta.setOwner(playerName);
@@ -31,13 +33,17 @@ public class ItemManager {
     }
 
     public ItemStack getPlayerHead(UUID playerId) {
-        final String playerName = plugin.getIdentificationProvider().getName(playerId);
+        final OfflinePlayer offlinePlayer = Bukkit.getOfflinePlayer(playerId);
 
-        if (playerName == null) {
-            return null;
-        }
+        ItemStack itemStack = new ItemStack(Material.PLAYER_HEAD);
+        SkullMeta skullMeta = (SkullMeta) itemStack.getItemMeta();
 
-        return getPlayerHead(playerName);
+        skullMeta.setOwningPlayer(offlinePlayer);
+        skullMeta.setDisplayName("§e" + offlinePlayer.getName());
+
+        itemStack.setItemMeta(skullMeta);
+
+        return itemStack;
     }
 
 }

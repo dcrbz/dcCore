@@ -25,7 +25,7 @@ public class Mongo {
     }
 
     public void disconnect() {
-        if(mongoClient != null) {
+        if (mongoClient != null) {
             mongoClient.close();
         }
     }

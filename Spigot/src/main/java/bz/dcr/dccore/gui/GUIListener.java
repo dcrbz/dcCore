@@ -48,7 +48,7 @@ public class GUIListener implements Listener {
 
     @EventHandler
     public void onInteract(InventoryInteractEvent e) {
-        if (GUIWindow.getWindow(e.getInventory().getTitle()) == null){
+        if (GUIWindow.getWindow(e.getInventory().getTitle()) == null) {
             return;
         }
 

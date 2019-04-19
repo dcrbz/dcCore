@@ -7,7 +7,7 @@
     <groupId>bz.dcr</groupId>
     <artifactId>dccore</artifactId>
     <packaging>pom</packaging>
-    <version>1.1.0</version>
+    <version>1.2.0</version>
     <modules>
         <module>Spigot</module>
         <module>BungeeCord</module>
@@ -23,7 +23,7 @@
         <!-- deinCraft Repository -->
         <repository>
             <id>deincraft-repo</id>
-            <url>https://repo.deincraft.bz/artifactory/deincraft-repo</url>
+            <url>https://maven.dtl.bz/artifactory/public</url>
         </repository>
     </repositories>
 

@@ -9,7 +9,7 @@ public class PotionEffectCodecProvider implements CodecProvider {
 
     @Override
     public <T> Codec<T> get(Class<T> clazz, CodecRegistry registry) {
-        if(clazz == PotionEffect.class) {
+        if (clazz == PotionEffect.class) {
             return (Codec<T>) new PotionEffectCodec();
         }
 
