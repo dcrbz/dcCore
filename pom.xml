@@ -18,15 +18,6 @@
         <javaVersion>1.8</javaVersion>
     </properties>
 
-    <!-- Repositories -->
-    <repositories>
-        <!-- deinCraft Repository -->
-        <repository>
-            <id>deincraft-repo</id>
-            <url>https://maven.dtl.bz/artifactory/public</url>
-        </repository>
-    </repositories>
-
     <!-- Build Settings -->
     <build>
         <!-- Build Plugins -->
@@ -34,7 +25,7 @@
             <plugin>
                 <groupId>org.apache.maven.plugins</groupId>
                 <artifactId>maven-compiler-plugin</artifactId>
-                <version>3.7.0</version>
+                <version>3.8.1</version>
                 <configuration>
                     <source>${javaVersion}</source>
                     <target>${javaVersion}</target>
