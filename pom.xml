@@ -18,8 +18,25 @@
         <javaVersion>1.8</javaVersion>
     </properties>
 
+    <distributionManagement>
+        <repository>
+            <id>deincraft</id>
+            <url>https://maven.lenic.dev/repository/deincraft/</url>
+        </repository>
+    </distributionManagement>
+
     <!-- Build Settings -->
     <build>
+        <pluginManagement>
+            <plugins>
+                <plugin>
+                    <groupId>org.apache.maven.plugins</groupId>
+                    <artifactId>maven-deploy-plugin</artifactId>
+                    <version>2.8.2</version>
+                </plugin>
+            </plugins>
+        </pluginManagement>
+
         <!-- Build Plugins -->
         <plugins>
             <plugin>
@@ -30,6 +47,10 @@
                     <source>${javaVersion}</source>
                     <target>${javaVersion}</target>
                 </configuration>
+            </plugin>
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-deploy-plugin</artifactId>
             </plugin>
         </plugins>
     </build>

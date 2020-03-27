@@ -1,5 +1,5 @@
 name: dcCore
 authors: [leNic]
 version: ${project.version}
-api-version: 1.13
+api-version: 1.15
 main: bz.dcr.dccore.DcCorePlugin
