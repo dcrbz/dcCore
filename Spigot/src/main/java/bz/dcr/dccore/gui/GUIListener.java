@@ -12,7 +12,7 @@ public class GUIListener implements Listener {
 
     @EventHandler
     public void onClick(InventoryClickEvent e) {
-        GUIWindow window = GUIWindow.getWindow(e.getInventory().getTitle());
+        GUIWindow window = GUIWindow.getWindow(e.getView().getTitle());
 
         if (window == null) {
             return;
@@ -30,7 +30,7 @@ public class GUIListener implements Listener {
 
     @EventHandler
     public void onOpen(InventoryOpenEvent e) {
-        GUIWindow window = GUIWindow.getWindow(e.getInventory().getTitle());
+        GUIWindow window = GUIWindow.getWindow(e.getView().getTitle());
 
         if (window != null) {
             window.callOpen(e);
@@ -39,7 +39,7 @@ public class GUIListener implements Listener {
 
     @EventHandler
     public void onClose(InventoryCloseEvent e) {
-        GUIWindow window = GUIWindow.getWindow(e.getInventory().getTitle());
+        GUIWindow window = GUIWindow.getWindow(e.getView().getTitle());
 
         if (window != null) {
             window.callClosed(e);
@@ -48,7 +48,7 @@ public class GUIListener implements Listener {
 
     @EventHandler
     public void onInteract(InventoryInteractEvent e) {
-        if (GUIWindow.getWindow(e.getInventory().getTitle()) == null) {
+        if (GUIWindow.getWindow(e.getView().getTitle()) == null) {
             return;
         }
 

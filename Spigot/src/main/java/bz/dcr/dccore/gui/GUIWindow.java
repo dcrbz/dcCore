@@ -15,6 +15,7 @@ public class GUIWindow {
 
     private static Map<String, GUIWindow> windows = new HashMap<>();
 
+    private String name;
     private Inventory inv;
     private Map<Integer, GUIItem> items;
     private Consumer<InventoryOpenEvent> onOpen = null;
@@ -74,13 +75,13 @@ public class GUIWindow {
     }
 
     public void show(HumanEntity h) {
-        Inventory inv = Bukkit.createInventory(h, getBukkitInventory().getSize(), getBukkitInventory().getTitle());
+        Inventory inv = Bukkit.createInventory(h, getBukkitInventory().getSize(), name);
         inv.setContents(getBukkitInventory().getContents());
         h.openInventory(inv);
     }
 
     public void unregister() {
-        windows.remove(this.getBukkitInventory().getTitle());
+        windows.remove(name);
         this.items.clear();
         this.registered = false;
     }
