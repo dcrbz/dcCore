@@ -21,18 +21,18 @@ public class PotionEffectCodec implements Codec<PotionEffect> {
             return null;
         }
 
-        final PotionEffect potionEffect = new PotionEffect(
+        final int duration = bsonReader.readInt32("duration");
+        final int amplifier = bsonReader.readInt32("amplifier");
+        final boolean ambient = bsonReader.readBoolean("ambient");
+        final boolean particles = bsonReader.readBoolean("particles");
+
+        return new PotionEffect(
                 potionEffectType,
-                bsonReader.readInt32("duration"),
-                bsonReader.readInt32("amplifier"),
-                bsonReader.readBoolean("ambient"),
-                bsonReader.readBoolean("particles"),
-                bsonReader.readBoolean("icon")
+                duration,
+                amplifier,
+                ambient,
+                particles
         );
-
-        bsonReader.readEndDocument();
-
-        return potionEffect;
     }
 
     @Override
