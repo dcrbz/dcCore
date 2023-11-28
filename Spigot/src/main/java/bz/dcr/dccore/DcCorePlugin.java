@@ -9,7 +9,6 @@ import bz.dcr.dccore.listener.JoinListener;
 import bz.dcr.dccore.notification.NotificationManager;
 import bz.dcr.dccore.player.PlayerManager;
 import bz.dcr.dccore.prompt.PromptManager;
-import com.mongodb.BasicDBObject;
 import com.mongodb.MongoClientURI;
 import org.bukkit.plugin.java.JavaPlugin;
 
@@ -79,8 +78,6 @@ public class DcCorePlugin extends JavaPlugin {
         );
 
         mongoDB = new MongoDB(uri, getClass().getClassLoader());
-        mongoDB.getClient().getDatabase("admin").runCommand(new BasicDBObject("setFeatureCompatibilityVersion", "3.4"));
-        mongoDB.getMorphia().mapPackage(getClass().getPackage().getName(), true);
     }
 
     private void registerListeners() {

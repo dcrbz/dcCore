@@ -2,13 +2,13 @@ package bz.dcr.dccore.identification;
 
 import bz.dcr.dccore.commons.identification.AbstractIdentificationProvider;
 import bz.dcr.dccore.commons.identification.CorePlayer;
-import org.mongodb.morphia.Datastore;
+import dev.morphia.Datastore;
 
 import java.util.UUID;
 
 public class IdentificationProvider extends AbstractIdentificationProvider {
 
-    private Datastore datastore;
+    private final Datastore datastore;
 
 
     public IdentificationProvider(Datastore datastore) {
@@ -44,13 +44,13 @@ public class IdentificationProvider extends AbstractIdentificationProvider {
     private CorePlayer getCorePlayerFromDatabase(UUID uuid) {
         return datastore.createQuery(CorePlayer.class)
                 .field("uuid").equal(uuid)
-                .get();
+                .first();
     }
 
     private CorePlayer getCorePlayerFromDatabase(String name) {
         return datastore.createQuery(CorePlayer.class)
                 .field("name").equal(name)
-                .get();
+                .first();
     }
 
 }

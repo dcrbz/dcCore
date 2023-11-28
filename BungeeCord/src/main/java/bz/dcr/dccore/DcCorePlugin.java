@@ -70,7 +70,6 @@ public class DcCorePlugin extends Plugin {
         );
 
         mongoDB = new MongoDB(uri, getClass().getClassLoader());
-        mongoDB.getMorphia().mapPackage(getClass().getPackage().getName(), true);
     }
 
     private void registerListeners() {

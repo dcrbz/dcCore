@@ -2,15 +2,14 @@ package bz.dcr.dccore.player;
 
 import bz.dcr.dccore.commons.identification.CorePlayer;
 import bz.dcr.dccore.commons.player.AbstractPlayerManager;
-import org.mongodb.morphia.Datastore;
-import org.mongodb.morphia.Key;
+import dev.morphia.Datastore;
 
 import java.util.Optional;
 import java.util.UUID;
 
 public class PlayerManager extends AbstractPlayerManager {
 
-    private Datastore datastore;
+    private final Datastore datastore;
 
 
     public PlayerManager(Datastore datastore) {
@@ -22,13 +21,13 @@ public class PlayerManager extends AbstractPlayerManager {
     public Optional<CorePlayer> getCorePlayer(UUID uuid) {
         CorePlayer corePlayer = datastore.createQuery(CorePlayer.class)
                 .field("uuid").equal(uuid)
-                .get();
+                .first();
 
         return Optional.ofNullable(corePlayer);
     }
 
     @Override
-    public Key<CorePlayer> saveCorePlayer(CorePlayer corePlayer) {
+    public CorePlayer saveCorePlayer(CorePlayer corePlayer) {
         return datastore.save(corePlayer);
     }
 

@@ -1,10 +1,10 @@
 package bz.dcr.dccore.commons.identification;
 
+import dev.morphia.annotations.Entity;
+import dev.morphia.annotations.Id;
+import dev.morphia.annotations.IndexOptions;
+import dev.morphia.annotations.Indexed;
 import org.bson.types.ObjectId;
-import org.mongodb.morphia.annotations.Embedded;
-import org.mongodb.morphia.annotations.Entity;
-import org.mongodb.morphia.annotations.Id;
-import org.mongodb.morphia.annotations.Indexed;
 
 import java.util.UUID;
 
@@ -14,10 +14,9 @@ public class CorePlayer {
     @Id
     private ObjectId id;
 
-    @Indexed(unique = true)
+    @Indexed(options = @IndexOptions(unique = true))
     private UUID uuid;
     private String name;
-    @Embedded
     private JoinInfo lastJoin;
 
 

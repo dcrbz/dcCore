@@ -1,6 +1,6 @@
 package bz.dcr.dccore.commons.notification;
 
-import org.mongodb.morphia.annotations.Entity;
+import dev.morphia.annotations.Entity;
 
 import java.util.UUID;
 

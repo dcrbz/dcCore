@@ -2,19 +2,19 @@ package bz.dcr.dccore.notification;
 
 import bz.dcr.dccore.commons.notification.INotificationManager;
 import bz.dcr.dccore.commons.notification.OneTimeNotification;
+import dev.morphia.Datastore;
+import dev.morphia.query.Query;
 import org.bukkit.Bukkit;
 import org.bukkit.entity.Player;
 import org.bukkit.plugin.Plugin;
-import org.mongodb.morphia.Datastore;
-import org.mongodb.morphia.query.Query;
 
 import java.util.List;
 import java.util.UUID;
 
 public class NotificationManager implements INotificationManager {
 
-    private Plugin plugin;
-    private Datastore datastore;
+    private final Plugin plugin;
+    private final Datastore datastore;
 
 
     public NotificationManager(Plugin plugin, Datastore datastore) {
@@ -59,7 +59,8 @@ public class NotificationManager implements INotificationManager {
     public List<OneTimeNotification> getOneTimeNotifications(UUID targetPlayer) {
         return datastore.createQuery(OneTimeNotification.class)
                 .field("targetPlayer").equal(targetPlayer)
-                .asList();
+                .iterator()
+                .toList();
     }
 
     private void saveOneTimeNotification(OneTimeNotification notification) {

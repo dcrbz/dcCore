@@ -1,7 +1,10 @@
 package bz.dcr.dccore.commons.identification;
 
+import dev.morphia.annotations.Entity;
+
 import java.util.Date;
 
+@Entity
 public class JoinInfo {
 
     private Date time;
