@@ -5,7 +5,7 @@
     <parent>
         <artifactId>dccore</artifactId>
         <groupId>bz.dcr</groupId>
-        <version>1.4.3</version>
+        <version>1.4.4</version>
     </parent>
     <modelVersion>4.0.0</modelVersion>
 
@@ -30,8 +30,8 @@
         <!-- MongoDB Java Driver -->
         <dependency>
             <groupId>org.mongodb</groupId>
-            <artifactId>mongo-java-driver</artifactId>
-            <version>3.12.14</version>
+            <artifactId>mongodb-driver-sync</artifactId>
+            <version>4.11.1</version>
         </dependency>
         <dependency>
             <groupId>dev.morphia.morphia</groupId>
