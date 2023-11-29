@@ -17,7 +17,8 @@ public class MongoDB implements Closeable {
 
     public MongoDB(MongoClientURI uri, ClassLoader classLoader) {
         client = MongoClients.create(uri.getURI());
-        var mapperOptions = MapperOptions.legacy()
+        var mapperOptions = MapperOptions
+                .builder(MapperOptions.DEFAULT)
                 .classLoader(classLoader)
                 .build();
         datastore = Morphia.createDatastore(client, uri.getDatabase(), mapperOptions);
