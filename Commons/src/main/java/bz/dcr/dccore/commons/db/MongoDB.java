@@ -1,11 +1,13 @@
 package bz.dcr.dccore.commons.db;
 
+import bz.dcr.dccore.commons.db.codec.UUIDCodecProvider;
 import com.mongodb.MongoClientURI;
 import com.mongodb.client.MongoClient;
 import com.mongodb.client.MongoClients;
 import dev.morphia.Datastore;
 import dev.morphia.Morphia;
 import dev.morphia.mapping.MapperOptions;
+import org.bson.codecs.configuration.CodecProvider;
 
 import java.io.Closeable;
 
@@ -15,13 +17,18 @@ public class MongoDB implements Closeable {
     private final Datastore datastore;
 
 
-    public MongoDB(MongoClientURI uri, ClassLoader classLoader) {
+    public MongoDB(MongoClientURI uri, ClassLoader classLoader, CodecProvider... codecProviders) {
         client = MongoClients.create(uri.getURI());
         var mapperOptions = MapperOptions
-                .builder(MapperOptions.DEFAULT)
-                .classLoader(classLoader)
-                .build();
-        datastore = Morphia.createDatastore(client, uri.getDatabase(), mapperOptions);
+                .builder()
+                .codecProvider(new UUIDCodecProvider())
+                .classLoader(classLoader);
+
+        for (CodecProvider codecProvider : codecProviders) {
+            mapperOptions.codecProvider(codecProvider);
+        }
+
+        datastore = Morphia.createDatastore(client, uri.getDatabase(), mapperOptions.build());
     }
 
 
