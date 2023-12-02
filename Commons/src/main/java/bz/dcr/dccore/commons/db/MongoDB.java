@@ -7,6 +7,7 @@ import com.mongodb.client.MongoClients;
 import dev.morphia.Datastore;
 import dev.morphia.Morphia;
 import dev.morphia.mapping.MapperOptions;
+import org.bson.UuidRepresentation;
 import org.bson.codecs.configuration.CodecProvider;
 
 import java.io.Closeable;
@@ -22,7 +23,8 @@ public class MongoDB implements Closeable {
         var mapperOptions = MapperOptions
                 .builder()
                 .codecProvider(new UUIDCodecProvider())
-                .classLoader(classLoader);
+                .classLoader(classLoader)
+                .uuidRepresentation(UuidRepresentation.JAVA_LEGACY);
 
         for (CodecProvider codecProvider : codecProviders) {
             mapperOptions.codecProvider(codecProvider);
